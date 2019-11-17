@@ -4,7 +4,40 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--
+        配置bean
+        class: bean的全类名，通过反射的方式在IOC容器中创建Bean，所以要求Bean中必须有无参数的构造器
+        id:
+    -->
     <bean id="helloWorld" class="com.springindepth.HelloWorld">
         <property name="name" value="Spring"></property>
     </bean>
+
+    <!-- 通过构造方法来配置bean的属性 -->
+    <bean id="car" class="com.springindepth.Car">
+        <constructor-arg value="Audi" index="0"></constructor-arg>
+        <constructor-arg value="Shanghai" index="1"></constructor-arg>
+        <constructor-arg value="300000" index="2"></constructor-arg>
+    </bean>
+
+    <!-- 通过构造方法来配置bean的属性 -->
+    <bean id="car2" class="com.springindepth.Car">
+        <constructor-arg value="Audi" index="0"></constructor-arg>
+        <constructor-arg value="Shanghai" index="1"></constructor-arg>
+        <constructor-arg value="240" index="2"></constructor-arg>
+    </bean>
+    <bean id="person" class="com.springindepth.Person">
+        <constructor-arg value="Mike" index="0"></constructor-arg>
+        <constructor-arg value="33" index="1"></constructor-arg>
+        <!-- 内部bean, 不能被外部引用，只能在内部使用 -->
+        <constructor-arg name="car">
+            <bean id = "car3" class="com.springindepth.Car">
+                <constructor-arg value="Ford" index="0"></constructor-arg>
+                <constructor-arg value="Changan" index="1"></constructor-arg>
+                <constructor-arg value="190" index="2"></constructor-arg>
+            </bean>
+        </constructor-arg>
+
+    </bean>
+
 </beans>

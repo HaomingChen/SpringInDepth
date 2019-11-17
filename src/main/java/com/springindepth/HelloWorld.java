@@ -10,6 +10,10 @@ public class HelloWorld {
         System.out.println("Hello " + name);
     }
 
+    private HelloWorld() {
+        System.out.println("Hello World Constructor");
+    }
+
     public String getName() {
         return name;
     }
