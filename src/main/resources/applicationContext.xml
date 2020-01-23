@@ -13,6 +13,8 @@
         <property name="name" value="Spring"></property>
     </bean>
 
+    <bean id="messageService" class="com.springindepth.MessageServiceImpl"/>
+
     <!-- 通过构造方法来配置bean的属性 -->
     <bean id="car" class="com.springindepth.Car">
         <constructor-arg value="Audi" index="0"></constructor-arg>
